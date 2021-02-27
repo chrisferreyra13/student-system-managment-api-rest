@@ -12,7 +12,10 @@ class WaitlistEntry(Timestamps, models.Model):
         unique=True,
     )
     notes=models.TextField()
-
+    level=models.IntegerField(verbose_name='Class Level', default=1)
     class Meta:
         verbose_name_plural= 'Waitlist entries'
+
+    def full_name(self):
+        return f'{self.first_name} {self.last_name}'
     
